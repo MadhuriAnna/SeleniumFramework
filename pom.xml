@@ -53,7 +53,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>xmlfiles/{testsuite}</suiteXmlFile>
+						<suiteXmlFile>xmlfiles/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
