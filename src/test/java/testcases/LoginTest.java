@@ -16,7 +16,7 @@ public class LoginTest extends BaseClass
 	 * 
 	 */
 	
-	//testNG Annotation
+	//test method
 	@Test(description = "This test will verify valid login scenario",groups={"Smoke","Regression"},dataProvider = "login",dataProviderClass = CustomDataProvider.class)
 	public void validLoginTest(String username,String password)
 	{
