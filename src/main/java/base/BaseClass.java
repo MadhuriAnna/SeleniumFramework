@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import dataprovider.ConfigReader;
 import factory.BrowserFactory;
@@ -33,15 +34,17 @@ public class BaseClass
 	public WebDriver driver;
 	
 	@BeforeClass
-	public void setupBrowser()
+	@Parameters({"browser", "version", "platform"})
+	public void setupBrowser(String br, String vr, String pf)
 	{
-		System.out.println("LOG:INFO - Setting Up Browser");
+		System.out.println("LOG:INFO - Setting Up Browser: " + br + ", Version: " + vr + ", Platform: " + pf);
 		
-		String browser=ConfigReader.getValue("browser");
+	//	String browser=ConfigReader.getValue("browser");
 		
 		String appurl=ConfigReader.getValue("qaenv");
+		driver = BrowserFactory.getDriver(br, vr, pf, appurl);
 		
-		driver=BrowserFactory.getDriver(browser,appurl);
+		//driver=BrowserFactory.getDriver(browser,appurl);
 		
 		System.out.println("LOG:INFO - Application is up and running");
 	}
